@@ -27,7 +27,7 @@ const newUser = async (req,res) => {
         });
 
         console.log(newToken);
-        const url = `http://localhost:3000/users/${user}/verify/${newToken.token}`;
+        const url = `https://buszawebpage.netlify.app/users/${user}/verify/${newToken.token}`;
 
         await verifymail.Verifymail(email,"Verify Email",url)
         res.status(201).send({message:"An Email sent to your account please verify"})

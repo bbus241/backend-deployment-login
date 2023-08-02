@@ -30,7 +30,7 @@ const CheckUser = async (req,res) => {
                     });
             
                     console.log(newToken);
-                    const url = `http://localhost:3000/users/${founder.Username}/verify/${newToken.token}`;
+                    const url = `https://buszawebpage.netlify.app/users/${founder.Username}/verify/${newToken.token}`;
             
                     await verifymail.Verifymail(founder.Email,"Verify Email",url)
                 }
