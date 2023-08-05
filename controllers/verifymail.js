@@ -15,7 +15,7 @@ const Verifymail = async(req,res)=>{
         if(!newToken) return res.status(400).send({message:"Invalid link"});
 
         await user.updateOne({Username: req.params.user,verify: true});
-        newToken.remove();
+        await Token.findByIdAndRemove(newToken._id);
         res.status(200).send({message: "Email verified successfully"})
     }catch(error){
         res.status(500).send({message:"Internal Server Error"});
