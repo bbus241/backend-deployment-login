@@ -15,9 +15,9 @@ const Verifymail = async(email,subject,text)=>{
         subject: subject,
         text: text
     });
-        console.log("Email send Successfully");
+        // console.log("Email send Successfully");
     }catch(error){
-        console.log("Email not send")
+        // console.log("Email not send")
         console.log(error)
         return error;
     }

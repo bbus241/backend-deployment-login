@@ -26,7 +26,8 @@ const newUser = async (req,res) => {
             'token' : crypto.randomBytes(32).toString("hex")
         });
 
-        console.log(newToken);
+        // console.log(newToken);
+        // const url = `http://localhost:3000/users/${user}/verify/${newToken.token}`;
         const url = `https://buszawebpage.netlify.app/users/${user}/verify/${newToken.token}`;
 
         await verifymail.Verifymail(email,"Verify Email",url)

@@ -29,7 +29,8 @@ const CheckUser = async (req,res) => {
                         'token' : crypto.randomBytes(32).toString("hex")
                     });
             
-                    console.log(newToken);
+                    // console.log(newToken);
+                    // const url = `http://localhost:3000/users/${founder.Username}/verify/${newToken.token}`;
                     const url = `https://buszawebpage.netlify.app/users/${founder.Username}/verify/${newToken.token}`;
             
                     await verifymail.Verifymail(founder.Email,"Verify Email",url)
@@ -43,7 +44,7 @@ const CheckUser = async (req,res) => {
             },
             process.env.ACCESS_TOKEN_SECRET,
             {
-                expiresIn: '300s'
+                expiresIn: '1800s'
             }
         )
         res.cookie('jwt',{httpOnly: false,maxAge: 24*60*60*1000});

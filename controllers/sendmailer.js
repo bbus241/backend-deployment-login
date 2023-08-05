@@ -17,6 +17,7 @@ const send_mail = async(req,res)=>{
             pass: "yngwhrnzkxsycqcr"
         }
     });
+    // const url = `http://localhost:3000/resetpass/${founder.Username}/${founder.Email}`;
     const url = `https://buszawebpage.netlify.app/resetpass/${founder.Username}/${founder.Email}`;
 
     var mailOptions = {
@@ -29,7 +30,7 @@ const send_mail = async(req,res)=>{
     transportar.sendMail(mailOptions, (error, info) => {
         if (error) console.log(error);
         return res.status(201).json({'success': "send Email successfully",'username': founder.Username,'email':founder.Email})
-        console.log(info);
+        // console.log(info);
       });
     
     }
