@@ -7,7 +7,7 @@ const BSON = require('bson');
 const editUser = async (req,res) => {
    
     const {user, email,pwd , pic} = req.body; 
-    if( !user || !pwd) return res.status(400).json({'message' : 'Usernme and Password are required. '});
+    if( !user || !pwd) return res.status(400).json({'message' : 'Username and Password are required. '});
     const founder = await User.findOne({ Email: { $regex: new RegExp(`^${email}$`, 'i') } });
     const founder_username = await User.findOne({ Username: { $regex: new RegExp(`^${user}$`, 'i') } });
     if(founder_username && founder_username.Username !== founder.Username) {
