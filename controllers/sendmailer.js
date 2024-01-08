@@ -17,8 +17,8 @@ const send_mail = async(req,res)=>{
             pass: "yngwhrnzkxsycqcr"
         }
     });
-    // const url = `http://localhost:3000/resetpass/${founder.Username}/${founder.Email}`;
-    const url = `https://buszawebpage.netlify.app/resetpass/${founder.Username}/${founder.Email}`;
+    const url = `http://localhost:3000/resetpass/${founder.Username}/${founder.Email}`;
+    // const url = `https://buszawebpage.netlify.app/resetpass/${founder.Username}/${founder.Email}`;
 
     var mailOptions = {
         from: "6210110713@psu.ac.th",

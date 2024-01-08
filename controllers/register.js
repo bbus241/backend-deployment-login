@@ -8,12 +8,12 @@ const crypto = require("crypto")
 
 const newUser = async (req,res) => {
     const {user,email, pwd} = req.body;
-    if( !user || !pwd) return res.status(400).json({'message' : 'Usernme and Password are required. '});
-
+    if( !user || !pwd) return res.status(400).json({'message' : 'Username and Password are required. '});
+    
     const duplicate_user = await User.findOne({Username: { $regex: new RegExp(`^${user}$`, 'i') }});
     const duplicate_email = await User.findOne({Email: { $regex: new RegExp(`^${email}$`, 'i') }});
-    if(duplicate_user) return res.status(409).json({'message': 'duplicate username'});
-    if(duplicate_email) return res.status(409).json({'message': 'duplicate email'});
+    if(duplicate_user) return res.status(409).json({'message': 'This username is already in use. Please choose another one'});
+    if(duplicate_email) return res.status(409).json({'message': 'This email is already in use. Please choose another one'});
     try{
         const hashedPwd =  await bcrypt.hash(pwd, parseInt(user));
         const result = await User.create({ 
@@ -27,8 +27,8 @@ const newUser = async (req,res) => {
         });
 
         // console.log(newToken);
-        // const url = `http://localhost:3000/users/${user}/verify/${newToken.token}`;
-        const url = `https://buszawebpage.netlify.app/users/${user}/verify/${newToken.token}`;
+        const url = `http://localhost:3000/users/${user}/verify/${newToken.token}`;
+        // const url = `https://buszawebpage.netlify.app/users/${user}/verify/${newToken.token}`;
 
         await verifymail.Verifymail(email,"Verify Email",url)
         res.status(201).send({message:"An Email sent to your account please verify"})

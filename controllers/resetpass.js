@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 
 const ResetPass = async (req,res) => {
     const {user,email, pwd} = req.body;
-    if(!pwd) return res.status(400).json({'message' : 'Usernme and Password are required. '});
+    if(!pwd) return res.status(400).json({'message' : 'Username and Password are required. '});
 
     const founder = await User.findOne({
         $and: [
