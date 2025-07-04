@@ -6,7 +6,7 @@ const Verifymail = async(email,subject,text)=>{
         service: "gmail",
         auth: {
             user: "6210110713@psu.ac.th",
-            pass: "yngwhrnzkxsycqcr"
+            pass: "dtwfkdymonskvvyn"
         }
     });
     await transportar.sendMail({

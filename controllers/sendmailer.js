@@ -14,7 +14,7 @@ const send_mail = async(req,res)=>{
         service: "gmail",
         auth: {
             user: "6210110713@psu.ac.th",
-            pass: "yngwhrnzkxsycqcr"
+            pass: "dtwfkdymonskvvyn"
         }
     });
     // const url = `http://localhost:3000/resetpass/${founder.Username}/${founder.Email}`;
